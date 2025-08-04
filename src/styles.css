@@ -1,0 +1,136 @@
+:root {
+  --backgroud-color: #f4f4f4;
+  --column-background-color: white;
+  --card-color: #e2e2e2;
+  --text-color: black;
+  --add-tast-input-color: #eee;
+
+  --delete-icon-color: red;
+
+  --todo-color: red;
+  --in-progress-color: orange;
+  --done-color: green;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --backgroud-color: #111111;
+    --column-background-color: black;
+    --card-color: #222222;
+    --text-color: white;
+    --add-tast-input-color: #222;
+
+    --delete-icon-color: #ff000044;
+
+    --todo-color: red;
+    --in-progress-color: orange;
+    --done-color: green;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--backgroud-color);
+
+  color: var(--text-color);
+}
+
+#app {
+  height: 100dvh;
+}
+
+.board {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  height: 100%;
+}
+
+.column {
+  background: var(--column-background-color);
+  border-radius: 1rem;
+  padding: 1rem;
+  min-width: 300px;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.column h2 {
+  margin-top: 0;
+  color: var(--column-color);
+}
+
+.task {
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  background: var(--card-color);
+  border-radius: 4px;
+  cursor: grab;
+
+  display: flex;
+  align-items: center;
+}
+
+.task input {
+  background: transparent;
+  color: var(--text-color);
+  margin: 0;
+  border: none;
+
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.task button {
+  height: 2rem;
+  width: 2rem;
+
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: none;
+  opacity: 0;
+
+  cursor: pointer;
+
+  background-color: var(--delete-icon-color);
+}
+
+.task:hover button,
+.task button:focus {
+  opacity: 1;
+}
+
+.add-task-form {
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.add-task-form input {
+  flex: 1;
+  background: var(--add-tast-input-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 2rem;
+  height: 2rem;
+  padding: 0 0.5rem;
+}
+.add-task-form button {
+  flex-shrink: 0;
+  color: var(--text-color);
+  background: var(--card-color);
+  border-radius: 50%;
+  border: none;
+  height: 2rem;
+  width: 2rem;
+}
