@@ -5,7 +5,8 @@
     "dev": "run-p watch serve",
     "watch": "tsc -w",
     "serve": "live-server --open=src/index.html",
-    "build": "tsc"
+    "build": "tsc && npm run copy-assets",
+    "copy-assets": "cp src/styles.css dist/ && cp src/index.html dist/ && sed -i '' 's|../dist/index.js|./index.js|g' dist/index.html && sed -i '' 's|href=\"./styles.css\"|href=\"./styles.css\"|g' dist/index.html"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5",
